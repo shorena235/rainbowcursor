@@ -930,7 +930,7 @@ function SplashCursor({
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, pointer.color);
     }
 
-    function clickSplat(pointer) {
+    /*function clickSplat(pointer) {
       const color = generateColor();
       color.r *= 10.0;
       color.g *= 10.0;
@@ -938,7 +938,15 @@ function SplashCursor({
       let dx = 10 * (Math.random() - 0.5);
       let dy = 30 * (Math.random() - 0.5);
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
-    }
+    }*/
+   function clickSplat(pointer) {
+  // Fixed purple #3b0086 in 0–1 range
+  const color = { r: 0.231, g: 0, b: 0.525 };
+  let dx = 10 * (Math.random() - 0.5);
+  let dy = 30 * (Math.random() - 0.5);
+  splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
+}
+
 
     function splat(x, y, dx, dy, color) {
       splatProgram.bind();
@@ -1008,13 +1016,17 @@ function SplashCursor({
       return delta;
     }
 
-    function generateColor() {
+    /*function generateColor() {
       let c = HSVtoRGB(Math.random(), 1.0, 1.0);
       c.r *= 0.15;
       c.g *= 0.15;
       c.b *= 0.15;
       return c;
-    }
+    }*/
+   function generateColor() {
+  // Pure purple (RGB values between 0–1)
+  return { r: 0.231, g: 0, b: 0.525 };
+}
 
     function HSVtoRGB(h, s, v) {
       let r, g, b, i, f, p, q, t;
