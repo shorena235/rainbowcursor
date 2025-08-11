@@ -1177,7 +1177,7 @@ function SplashCursor({
     SHADING,
     COLOR_UPDATE_SPEED,
     BACK_COLOR,
-    TRANSPARENT,
+    TRANSPARENT =true,
   ]);
 
   return (
